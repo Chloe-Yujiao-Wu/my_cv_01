@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Clean Editorial 明色主题: 暖米白背景 / 近黑文字 / 皇家蓝主色 */
+    --bg-rgb: 245 245 242; /* #F5F5F2 暖米白 */
+    --card-rgb: 255 255 255; /* 白色卡片 */
+    --soft-rgb: 238 238 232; /* #EEEE E8 暖灰卡片 */
+    --ink-rgb: 19 19 18; /* 近黑主文字 */
+    --muted-rgb: 82 82 91; /* 次级文字 */
+    --line-rgb: 228 228 222; /* 分隔线 */
+    --footer-rgb: 11 11 12; /* 黑色页脚 */
+    /* accent: 皇家蓝 */
+    --accent-rgb: 59 78 227; /* #3B4EE3 */
+    --accent-dark-rgb: 45 62 200;
+  }
+  .dark {
+    /* 暗色主题: 深灰黑背景 / 提亮主色 */
+    --bg-rgb: 10 10 11; /* #0A0A0B */
+    --card-rgb: 23 23 26; /* #17171A */
+    --soft-rgb: 29 29 33;
+    --ink-rgb: 244 244 242;
+    --muted-rgb: 161 161 170;
+    --line-rgb: 42 42 46;
+    --footer-rgb: 17 17 19;
+    /* accent: 提亮蓝,保证对比度 */
+    --accent-rgb: 124 137 245; /* #7C89F5 */
+    --accent-dark-rgb: 144 155 250;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-canvas text-ink antialiased transition-colors duration-300;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8 lg:px-12;
+  }
+  .section {
+    @apply py-20 sm:py-28;
+  }
+  .section-title {
+    @apply text-4xl font-black tracking-tight text-ink sm:text-5xl;
+  }
+  .section-eyebrow {
+    @apply flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-accent;
+  }
+  .link-accent {
+    @apply text-accent transition-colors hover:text-accent-dark;
+  }
+  /* 卡片表面 */
+  .surface-card {
+    @apply rounded-2xl border border-line bg-card transition-colors duration-300;
+  }
+  /* 次级背景区块 */
+  .surface-soft {
+    @apply bg-soft/50 dark:bg-soft/30;
+  }
+  .border-base {
+    @apply border-line;
+  }
+}
