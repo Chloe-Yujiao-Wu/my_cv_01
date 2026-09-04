@@ -8,7 +8,7 @@ export default function Skills() {
         <SectionTitle
           eyebrow="Skills"
           title="技能与专业"
-          lead="不拘泥于特定框架，坚持软件系统全局视角，具备从底层逻辑到界面渲染的跨度。"
+          lead=""
         />
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

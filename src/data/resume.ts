@@ -93,7 +93,7 @@ export const profile: Profile = {
 }
 
 export const about: AboutInfo = {
-  lead: '将复杂的技术挑战转化为优雅、直观的工程解决方案。既能站在高处审视系统架构，也能潜入细节雕琢一行代码。',
+  lead: '',
   heading: '数据驱动+项目管理',
   body: '待填充',
   cards: [

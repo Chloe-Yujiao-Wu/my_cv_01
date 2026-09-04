@@ -7,8 +7,8 @@ export default function About() {
       <div className="container-content">
         <SectionTitle eyebrow="About Me" title="关于我" lead={about.lead} />
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          {/* 左侧: 黑白人像 */}
+        <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-16">
+          {/* 左侧: 人像 */}
           <div>
             <img
               src={about.portrait}

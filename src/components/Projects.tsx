@@ -29,7 +29,7 @@ export default function Projects() {
           lead=""
         />
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+        <div className="mt-16 grid grid-cols-2 gap-8">
           {projects.map((p) => (
             <div
               key={p.name}
