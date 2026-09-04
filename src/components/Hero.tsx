@@ -7,7 +7,7 @@ export default function Hero() {
       <div className="container-content grid min-h-[92vh] grid-cols-[1fr_1fr] items-stretch gap-8 pb-20 pt-32 sm:gap-10">
         {/* 左侧: 徽章 + 超大标题 + 介绍 + CTA */}
         <div>
-          <span className="inline-block rounded-full border-[1.5px] border-accent px-4 py-1.5 text-sm font-semibold text-accent">
+          <span className="label inline-block rounded-full border-[1.5px] border-accent px-4 py-1.5 text-accent">
             {profile.badge}
           </span>
 
@@ -15,14 +15,14 @@ export default function Hero() {
             {profile.headline}
           </h1>
 
-          <p className="mt-8 max-w-2xl text-xl leading-relaxed text-muted sm:text-2xl sm:leading-relaxed">
+          <p className="body-lg mt-8 max-w-2xl text-lg sm:text-xl">
             {profile.intro}
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-accent-dark"
+              className="label inline-flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-white transition-colors hover:bg-accent-dark"
             >
               浏览项目细节
               <ArrowRightIcon className="h-4 w-4" />
@@ -30,7 +30,7 @@ export default function Hero() {
             <a
               href="resume.pdf"
               download="吴雨娇-个人简历.pdf"
-              className="inline-flex items-center gap-2 rounded-lg border-[1.5px] border-ink/20 bg-card px-6 py-3.5 text-base font-semibold text-ink transition-colors hover:border-ink/40"
+              className="label inline-flex items-center gap-2 rounded-lg border-[1.5px] border-ink/20 bg-card px-6 py-3.5 text-ink transition-colors hover:border-ink/40"
             >
               下载个人简历
               <ArrowDownIcon className="h-4 w-4" />

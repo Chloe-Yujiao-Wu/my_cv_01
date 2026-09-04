@@ -20,16 +20,16 @@ export default function About() {
 
           {/* 右侧: 介绍文字 + 信息卡片 */}
           <div>
-            <h3 className="text-2xl font-black leading-snug tracking-tight text-ink sm:text-3xl">
+            <h3 className="heading-2">
               {about.heading}
             </h3>
-            <p className="mt-6 text-base leading-loose text-muted">{about.body}</p>
+            <p className="body-base mt-6">{about.body}</p>
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2">
               {about.cards.map((card) => (
                 <div key={card.title} className="rounded-xl bg-card p-6">
-                  <h4 className="text-lg font-black tracking-tight text-ink">{card.title}</h4>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{card.description}</p>
+                  <h4 className="heading-4">{card.title}</h4>
+                  <p className="body-sm mt-3">{card.description}</p>
                 </div>
               ))}
             </div>

@@ -53,10 +53,10 @@ export default function Experience() {
             <button
               type="button"
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-2 rounded-lg border-[1.5px] border-line bg-card px-5 py-3 text-sm font-bold text-ink transition-colors hover:border-accent"
+              className="label flex items-center gap-2 rounded-lg border-[1.5px] border-line bg-card px-5 py-3 text-ink transition-colors hover:border-accent"
             >
               <span>筛选时间段</span>
-              <span className="rounded-full bg-soft px-2 py-0.5 text-xs font-bold text-accent">
+              <span className="caption rounded-full bg-soft px-2 py-0.5 text-accent">
                 {selectedPeriods.length}/{allPeriods.length}
               </span>
               <svg
@@ -111,7 +111,7 @@ export default function Experience() {
                           onChange={() => togglePeriod(period)}
                           className="sr-only"
                         />
-                        <span className={`text-sm font-semibold ${isActive ? 'text-accent' : 'text-ink'}`}>
+                        <span className={`label ${isActive ? 'text-accent' : 'text-ink'}`}>
                           {period}
                         </span>
                       </label>
@@ -121,7 +121,7 @@ export default function Experience() {
                   <button
                     type="button"
                     onClick={selectNone}
-                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold text-muted transition-colors hover:bg-soft"
+                    className="label flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-muted transition-colors hover:bg-soft"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -139,7 +139,7 @@ export default function Experience() {
                   <button
                     type="button"
                     onClick={selectAll}
-                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-bold text-accent transition-colors hover:bg-soft"
+                    className="label flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-accent transition-colors hover:bg-soft"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -170,8 +170,8 @@ export default function Experience() {
               >
                 {/* 左列: 日期 + 地点 */}
                 <div>
-                  <p className="text-xl font-black tracking-tight text-accent">{exp.period}</p>
-                  <p className="mt-2 text-base text-muted">{exp.location}</p>
+                  <p className="heading-3 text-accent">{exp.period}</p>
+                  <p className="body-base mt-2">{exp.location}</p>
                 </div>
 
                 {/* 中列: 时间线 */}
@@ -182,9 +182,9 @@ export default function Experience() {
 
                 {/* 右列: 职位 + 成就列表 */}
                 <div>
-                  <h3 className="text-2xl font-black tracking-tight text-ink sm:text-3xl">
+                  <h3 className="heading-2">
                     {exp.role}{' '}
-                    <span className="text-xl font-bold text-muted sm:text-2xl">@{exp.company}</span>
+                    <span className="heading-3 font-normal text-muted">@{exp.company}</span>
                   </h3>
                   <ul className="mt-6 space-y-3.5">
                     {exp.points.map((point) => (
@@ -193,7 +193,7 @@ export default function Experience() {
                           className="mt-[0.7em] h-1.5 w-1.5 flex-none rounded-full bg-accent"
                           aria-hidden="true"
                         />
-                        <span className="text-lg leading-relaxed text-ink/90">{point}</span>
+                        <span className="body-lg text-ink/90">{point}</span>
                       </li>
                     ))}
                   </ul>

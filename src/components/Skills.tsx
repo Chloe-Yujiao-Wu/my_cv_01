@@ -14,12 +14,12 @@ export default function Skills() {
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((group) => (
             <div key={group.category} className="surface-card p-8">
-              <h3 className="text-xl font-black tracking-tight text-ink">{group.category}</h3>
+              <h3 className="heading-4">{group.category}</h3>
               <ul className="mt-6 space-y-3.5">
                 {group.items.map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <span className="h-2 w-2 flex-none bg-accent" aria-hidden="true" />
-                    <span className="text-base text-ink/90">{item}</span>
+                    <span className="body-base text-ink/90">{item}</span>
                   </li>
                 ))}
               </ul>

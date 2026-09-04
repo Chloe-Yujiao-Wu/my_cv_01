@@ -31,9 +31,9 @@ export default function Navbar() {
     >
       <nav className="container-content flex h-[72px] items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <span className="text-lg font-black tracking-tight text-ink">{profile.name}</span>
+          <span className="heading-4 text-ink">{profile.name}</span>
           <span className="h-5 w-px bg-line" aria-hidden="true" />
-          <span className="text-sm font-medium text-muted">{profile.role}</span>
+          <span className="label text-muted">{profile.role}</span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -41,14 +41,14 @@ export default function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-[15px] font-medium text-ink transition-colors hover:text-accent"
+              className="label text-ink transition-colors hover:text-accent"
             >
               {item.label}
             </a>
           ))}
           <a
             href="#contact"
-            className="rounded-lg bg-ink px-5 py-2.5 text-sm font-semibold text-canvas transition-opacity hover:opacity-80"
+            className="label rounded-lg bg-ink px-5 py-2.5 text-canvas transition-opacity hover:opacity-80"
           >
             联系合作
           </a>
@@ -79,7 +79,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2.5 text-[15px] font-medium text-ink hover:bg-soft"
+                className="label rounded-md px-3 py-2.5 text-ink hover:bg-soft"
               >
                 {item.label}
               </a>
@@ -87,7 +87,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-lg bg-ink px-4 py-2.5 text-center text-sm font-semibold text-canvas"
+              className="label mt-2 rounded-lg bg-ink px-4 py-2.5 text-center text-canvas"
             >
               联系合作
             </a>

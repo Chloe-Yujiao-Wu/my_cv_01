@@ -16,7 +16,7 @@ export default function SectionTitle({ eyebrow, title, lead }: SectionTitleProps
       <div className="mt-10 border-b border-line" />
       {lead && (
         <div className="mt-12 flex justify-end">
-          <p className="max-w-xl text-xl leading-relaxed text-muted sm:text-2xl">{lead}</p>
+          <p className="body-lg max-w-xl text-lg sm:text-xl">{lead}</p>
         </div>
       )}
     </div>

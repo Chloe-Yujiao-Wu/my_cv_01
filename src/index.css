@@ -42,12 +42,39 @@
   .section {
     @apply py-20 sm:py-28;
   }
+
+  /* 统一排版层次体系 */
   .section-title {
     @apply text-4xl font-black tracking-tight text-ink sm:text-5xl;
   }
   .section-eyebrow {
-    @apply flex items-center gap-3 text-sm font-bold uppercase tracking-[0.2em] text-accent;
+    @apply flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-accent;
   }
+  .heading-2 {
+    @apply text-2xl font-black tracking-tight text-ink sm:text-3xl;
+  }
+  .heading-3 {
+    @apply text-xl font-bold tracking-tight text-ink sm:text-2xl;
+  }
+  .heading-4 {
+    @apply text-lg font-bold tracking-tight text-ink;
+  }
+  .body-lg {
+    @apply text-lg leading-relaxed text-muted;
+  }
+  .body-base {
+    @apply text-base leading-relaxed text-muted;
+  }
+  .body-sm {
+    @apply text-sm leading-relaxed text-muted;
+  }
+  .label {
+    @apply text-sm font-semibold;
+  }
+  .caption {
+    @apply text-xs font-medium;
+  }
+
   .link-accent {
     @apply text-accent transition-colors hover:text-accent-dark;
   }

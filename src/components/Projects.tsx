@@ -47,24 +47,24 @@ export default function Projects() {
               </div>
 
               <div className="flex flex-1 flex-col p-8">
-                <p className="text-sm font-bold text-accent">{p.category}</p>
-                <h3 className="mt-2 text-2xl font-black tracking-tight text-ink sm:text-3xl">
+                <p className="label text-accent">{p.category}</p>
+                <h3 className="heading-2 mt-2">
                   {p.name}
                 </h3>
-                <p className="mt-4 flex-1 text-base leading-relaxed text-muted">{p.description}</p>
+                <p className="body-base mt-4 flex-1">{p.description}</p>
 
                 <div className="mt-6 flex flex-wrap gap-2.5">
                   {p.tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-md bg-accent/10 px-3 py-1.5 text-sm font-semibold text-accent"
+                      className="label rounded-md bg-accent/10 px-3 py-1.5 text-accent"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <span className="mt-8 inline-flex items-center gap-1.5 text-base font-black text-ink">
+                <span className="label mt-8 inline-flex items-center gap-1.5 font-bold text-ink">
                   细节
                   <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </span>
@@ -108,15 +108,15 @@ export default function Projects() {
               </div>
 
               <div className="p-8">
-                <p className="text-sm font-bold text-accent">{active.category}</p>
-                <h3 className="mt-2 text-3xl font-black tracking-tight text-ink">
+                <p className="label text-accent">{active.category}</p>
+                <h3 className="heading-2 mt-2">
                   {active.name}
                 </h3>
-                <p className="mt-4 text-base leading-relaxed text-muted">{active.description}</p>
+                <p className="body-base mt-4">{active.description}</p>
 
                 {/* 详细内容列表 */}
                 <div className="mt-8 space-y-6">
-                  <h4 className="text-lg font-bold text-ink">项目详情</h4>
+                  <h4 className="heading-4">项目详情</h4>
                   <div className="space-y-5">
                     {active.details.map((d, i) => {
                       const parts = d.split('：')
@@ -124,8 +124,8 @@ export default function Projects() {
                       const content = parts.slice(1).join('：')
                       return (
                         <div key={i} className="flex gap-3">
-                          <span className="flex-none font-bold text-ink">{title}：</span>
-                          <span className="text-base leading-relaxed text-muted">{content}</span>
+                          <span className="heading-4 flex-none">{title}：</span>
+                          <span className="body-base">{content}</span>
                         </div>
                       )
                     })}
@@ -137,7 +137,7 @@ export default function Projects() {
                   {active.tech.map((t) => (
                     <span
                       key={t}
-                      className="rounded-md bg-accent/10 px-3 py-1.5 text-sm font-semibold text-accent"
+                      className="label rounded-md bg-accent/10 px-3 py-1.5 text-accent"
                     >
                       {t}
                     </span>
