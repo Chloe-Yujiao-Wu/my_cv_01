@@ -11,6 +11,8 @@ const ARC_STEP = 20 // 圆环弧间距(px), 加大避免文字重叠
 const HOVER_SCALE = 1.3
 // 空间不够时允许的最小字号(按比例减小, 维持视觉等比)
 const MIN_FONT_RATIO = 0.85
+// 卡片圆角半径(与容器 rounded-[2rem] 一致, 放大态标签四角不能进入该区域)
+const CORNER_R = 32
 
 // 单字占位宽度: 拉丁/数字较窄, 中文全宽
 function charWidth(c: string): number {
@@ -139,8 +141,18 @@ export default function TagSpiral() {
     // 碰撞避让 + 边界约束: 按放大态占位做约束, 并在此基础上再加 PADDING, 让 1× 更疏朗
     const PAD = 10 // 额外像素间距: 越大越疏朗
     const packRadii = radii.map((r) => r * HOVER_SCALE + PAD)
-    const packHalfH = FONT_SIZE * 0.5 * HOVER_SCALE + PAD * 0.5
-    for (let iter = 0; iter < 250; iter++) {
+    const realHalfH = (FONT_SIZE * 0.5) * HOVER_SCALE // 放大态真实半高
+    const packHalfH = realHalfH + PAD * 0.5 // 带安全余量的半高约束
+    // 四个圆角的圆心(仅作参考, 实际通过四边 CORNER_R+4 的安全边界保证不进入圆角区)
+    const _corners = [
+      { cx: CORNER_R, cy: CORNER_R },         // TL
+      { cx: w - CORNER_R, cy: CORNER_R },     // TR
+      { cx: CORNER_R, cy: h - CORNER_R },     // BL
+      { cx: w - CORNER_R, cy: h - CORNER_R }, // BR
+    ]
+    void _corners
+    for (let iter = 0; iter < 300; iter++) {
+      // 1. 邻居互推
       for (let a = 0; a < n; a++) {
         for (let b = a + 1; b < n; b++) {
           const dx = centers[b].x - centers[a].x
@@ -158,9 +170,13 @@ export default function TagSpiral() {
           }
         }
       }
+      // 2. 四边直边界约束(向内再缩 CORNER_R 安全区, 留出 2rem 圆角的安全距离, 让标签不会进入四角)
+      const SAFE = CORNER_R + 4
       centers.forEach((c, i) => {
-        c.x = Math.min(Math.max(c.x, packRadii[i]), w - packRadii[i])
-        c.y = Math.min(Math.max(c.y, packHalfH), h - packHalfH)
+        const minX = Math.max(packRadii[i], SAFE)
+        const minY = Math.max(packHalfH, SAFE)
+        c.x = Math.min(Math.max(c.x, minX), w - minX)
+        c.y = Math.min(Math.max(c.y, minY), h - minY)
       })
     }
 
