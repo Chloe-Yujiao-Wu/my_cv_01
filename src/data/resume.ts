@@ -105,7 +105,7 @@ export const about: AboutInfo = {
       description: '待补充',
     },
   ],
-  portrait: '/images/portrait.jpg',
+  portrait: 'images/portrait.jpg',
 }
 
 export const experiences: ExperienceItem[] = [
@@ -177,7 +177,7 @@ export const projects: ProjectItem[] = [
     description:
       '基于钉钉与千问，实现智能客服机器人，提升客户满意度与服务效率。',
     tech: ['钉钉', '千问'],
-    image: '/images/project-ai.jpg',
+    image: 'images/project-ai.jpg',
     link: '#projects',
   },
   {
@@ -195,7 +195,7 @@ export const projects: ProjectItem[] = [
     description:
       '处理海量指标数据的实时采集与可视化呈现，基于 Canvas 渲染的高性能图表引擎，支撑毫秒级监控大盘与多维度告警分析。',
     tech: ['Prometheus', 'Grafana'],
-    image: '/images/project-network.jpg',
+    image: 'images/project-network.jpg',
     link: '#projects',
   },
 ]

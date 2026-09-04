@@ -28,7 +28,7 @@ export default function Hero() {
               <ArrowRightIcon className="h-4 w-4" />
             </a>
             <a
-              href="/resume.pdf"
+              href="resume.pdf"
               download="吴雨娇-个人简历.pdf"
               className="inline-flex items-center gap-2 rounded-lg border-[1.5px] border-ink/20 bg-card px-6 py-3.5 text-base font-semibold text-ink transition-colors hover:border-ink/40"
             >
