@@ -12,6 +12,7 @@ const sections = [
 export default function SideNav() {
   const [activeSection, setActiveSection] = useState<string>('')
   const [showArrow, setShowArrow] = useState(false)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,7 +31,10 @@ export default function SideNav() {
       if (el) observer.observe(el)
     })
 
-    const onScroll = () => setShowArrow(window.scrollY > 600)
+    const onScroll = () => {
+      setShowArrow(window.scrollY > 600)
+      setVisible(window.scrollY > 400)
+    }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
 
@@ -42,8 +46,12 @@ export default function SideNav() {
 
   return (
     <>
-      {/* 左侧目录 */}
-      <nav className="fixed left-8 top-1/2 z-40 hidden -translate-y-1/2 lg:block">
+      {/* 左侧目录 - 从第二页开始展示 */}
+      <nav
+        className={`fixed left-8 top-1/2 z-40 hidden -translate-y-1/2 transition-all duration-300 lg:block ${
+          visible ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      >
         <ul className="space-y-5">
           {sections.map((s) => (
             <li key={s.id}>
