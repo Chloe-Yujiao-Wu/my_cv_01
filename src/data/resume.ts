@@ -94,16 +94,16 @@ export const profile: Profile = {
 
 export const about: AboutInfo = {
   lead: '',
-  heading: '数据驱动+项目管理',
-  body: '待填充',
+  heading: '外企与互联网大厂运营',
+  body: '主导过制造业公司跨国公司质量提升项目，以及互联网公司 AI 客服项目。擅长跨部门项目管理，英德双语。',
   cards: [
     {
       title: '外企+互联网',
-      description: '待补充',
+      description: '能力快速迁移。从外企中学习到的运营经验和数据分析技能，快速迁移到互联网公司，充分利用互联网公司的数据库资源，提升业务效率。',
     },
     {
       title: '项目管理',
-      description: '待补充',
+      description: '制造业跨国公司项目管理经验，互联网公司项目管理经验，PMP 持证',
     },
   ],
   portrait: 'images/portrait.jpg',
