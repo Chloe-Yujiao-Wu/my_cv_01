@@ -4,7 +4,7 @@ import { ArrowDownIcon, ArrowRightIcon } from './Icons'
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="container-content grid min-h-[92vh] grid-cols-[1.15fr_0.85fr] items-center gap-8 pb-20 pt-32 sm:gap-10">
+      <div className="container-content grid min-h-[92vh] grid-cols-[1fr_1fr] items-stretch gap-8 pb-20 pt-32 sm:gap-10">
         {/* 左侧: 徽章 + 超大标题 + 介绍 + CTA */}
         <div>
           <span className="inline-block rounded-full border-[1.5px] border-accent px-4 py-1.5 text-sm font-semibold text-accent">
@@ -28,7 +28,8 @@ export default function Hero() {
               <ArrowRightIcon className="h-4 w-4" />
             </a>
             <a
-              href="#contact"
+              href="/resume.pdf"
+              download="吴雨娇-个人简历.pdf"
               className="inline-flex items-center gap-2 rounded-lg border-[1.5px] border-ink/20 bg-card px-6 py-3.5 text-base font-semibold text-ink transition-colors hover:border-ink/40"
             >
               下载个人简历
@@ -38,21 +39,21 @@ export default function Hero() {
         </div>
 
         {/* 右侧: 技能标签卡片 */}
-        <div>
-          <div className="surface-card rounded-[2rem] p-10">
-            <div className="flex flex-wrap gap-x-4 gap-y-5">
+        <div className="h-full">
+          <div className="surface-card flex h-full min-h-[60vh] flex-col justify-center rounded-[2rem] p-12">
+            <div className="flex flex-wrap gap-x-5 gap-y-5">
               {profile.heroTags.map((tag) =>
                 tag === profile.heroTagHighlight ? (
                   <span
                     key={tag}
-                    className="rounded-full bg-accent px-5 py-2.5 text-base font-bold text-white"
+                    className="rounded-full bg-accent px-6 py-3 text-lg font-bold text-white"
                   >
                     {tag}
                   </span>
                 ) : (
                   <span
                     key={tag}
-                    className="cursor-default rounded-full border border-line bg-card px-5 py-2.5 text-base font-bold text-ink transition-all duration-300 ease-out hover:scale-110 hover:bg-accent hover:border-accent hover:text-white"
+                    className="cursor-default rounded-full border border-line bg-card px-6 py-3 text-lg font-bold text-ink transition-all duration-300 ease-out hover:scale-110 hover:bg-accent hover:border-accent hover:text-white"
                   >
                     {tag}
                   </span>
