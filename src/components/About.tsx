@@ -9,11 +9,11 @@ export default function About() {
 
         <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-16">
           {/* 左侧: 人像 */}
-          <div>
+          <div className="flex justify-center">
             <img
               src={about.portrait}
               alt={`${about.heading}`}
-              className="aspect-[4/5] w-full rounded-2xl object-cover"
+              className="aspect-[4/5] w-full max-w-[16rem] rounded-2xl object-cover"
               loading="lazy"
             />
           </div>
