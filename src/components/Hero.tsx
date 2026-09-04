@@ -4,14 +4,14 @@ import { ArrowDownIcon, ArrowRightIcon } from './Icons'
 export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden">
-      <div className="container-content grid min-h-[92vh] items-center gap-14 pb-20 pt-32 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10">
+      <div className="container-content grid min-h-[92vh] grid-cols-[1.15fr_0.85fr] items-center gap-8 pb-20 pt-32 sm:gap-10">
         {/* 左侧: 徽章 + 超大标题 + 介绍 + CTA */}
         <div>
           <span className="inline-block rounded-full border-[1.5px] border-accent px-4 py-1.5 text-sm font-semibold text-accent">
             {profile.badge}
           </span>
 
-          <h1 className="mt-8 text-6xl font-black leading-[1.05] tracking-tight text-ink sm:text-7xl xl:text-[6.5rem]">
+          <h1 className="mt-8 whitespace-nowrap text-[clamp(2.5rem,8vw,6.5rem)] font-black leading-[1.05] tracking-tight text-ink">
             {profile.headline}
           </h1>
 
@@ -38,7 +38,7 @@ export default function Hero() {
         </div>
 
         {/* 右侧: 技能标签卡片 */}
-        <div className="hidden lg:block">
+        <div>
           <div className="surface-card rounded-[2rem] p-10">
             <div className="flex flex-wrap gap-x-4 gap-y-5">
               {profile.heroTags.map((tag) =>
@@ -52,7 +52,7 @@ export default function Hero() {
                 ) : (
                   <span
                     key={tag}
-                    className="rounded-full border border-line bg-card px-5 py-2.5 text-base font-bold text-ink"
+                    className="cursor-default rounded-full border border-line bg-card px-5 py-2.5 text-base font-bold text-ink transition-all duration-300 ease-out hover:scale-110 hover:bg-accent hover:border-accent hover:text-white"
                   >
                     {tag}
                   </span>
