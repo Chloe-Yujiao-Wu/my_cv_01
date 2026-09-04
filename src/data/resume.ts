@@ -43,6 +43,7 @@ export interface ProjectItem {
   category: string
   name: string
   description: string
+  details: string[]
   tech: string[]
   image: string
   link: string
@@ -176,6 +177,11 @@ export const projects: ProjectItem[] = [
     name: 'AI Agent 客服',
     description:
       '基于钉钉与千问，实现智能客服机器人，提升客户满意度与服务效率。',
+    details: [
+      '独立统筹搭建 AI + 知识库 + Skills 钉钉答疑机器人，实现全球 AM 实时查询、异常自动诊断。',
+      '消除时差延迟，全球 7×24 小时无时差服务，服务满意度显著提升。',
+      '整合知识库与 Skills 能力，实现智能问答与自动诊断的闭环。',
+    ],
     tech: ['钉钉', '千问'],
     image: 'images/project-ai.jpg',
     link: '#projects',
@@ -184,18 +190,15 @@ export const projects: ProjectItem[] = [
     category: '数据',
     name: '车辆标签监控',
     description:
-      '待补充',
-    tech: ['SQL'],
-    image: '/images/project-dashboard.jpg',
-    link: '#projects',
-  },
-  {
-    category: '数据',
-    name: '系统监控大盘',
-    description:
-      '处理海量指标数据的实时采集与可视化呈现，基于 Canvas 渲染的高性能图表引擎，支撑毫秒级监控大盘与多维度告警分析。',
-    tech: ['Prometheus', 'Grafana'],
-    image: 'images/project-network.jpg',
+      '对接业务部门数据需求，设计并开发数据提取工具及自动化报表系统，支持司机用车全流程数据监控。',
+    details: [
+      '设计并开发数据提取工具及自动化报表系统，支持司机用车全流程数据监控与分析。',
+      '实现订单周期、账单应收/实收等核心数据的次日可查，提升业务决策效率。',
+      '基于系统数据制作月度经营分析报告，与财务、经管部门协作确认 toB/toC 应收实收数据。',
+      '建立关键业务指标监控体系，通过日报、月报形式跟踪目标达成情况，及时预警潜在风险。',
+    ],
+    tech: ['SQL', 'Excel', '自动化报表'],
+    image: 'images/project-dashboard.jpg',
     link: '#projects',
   },
 ]
