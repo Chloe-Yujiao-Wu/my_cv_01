@@ -178,24 +178,23 @@ export const projects: ProjectItem[] = [
     description:
       '基于钉钉与千问，实现智能客服机器人，提升客户满意度与服务效率。',
     details: [
-      '独立统筹搭建 AI + 知识库 + Skills 钉钉答疑机器人，实现全球 AM 实时查询、异常自动诊断。',
-      '消除时差延迟，全球 7×24 小时无时差服务，服务满意度显著提升。',
-      '整合知识库与 Skills 能力，实现智能问答与自动诊断的闭环。',
+      '主要问题：我单独对接中国大陆以外全球 AM（含港台）。接手后发现三方（PD/AM/技术）混群答疑存在明显弊端：问题归属不清导致AM找不到对接人；高频重复问题消耗大量精力；AM提问信息缺失叠加时差因素，单个问题闭环周期长达5-8个工作日，严重影响服务效率与体验。',
+      '解决方式：利用钉钉的 AI 功能，独立统筹搭建 AI + 知识库 + Skills 钉钉答疑机器人，实现全球 AM 实时查询、异常自动诊断。',
+      '最终结果：消除时差延迟，全球 7×24 小时无时差服务，服务满意度显著提升。整合知识库与 Skills 能力，实现智能问答与自动诊断的闭环。',
     ],
-    tech: ['钉钉', '千问'],
+    tech: ['钉钉', 'AI 大模型','Skills','AI Agent'],
     image: 'images/project-ai.jpg',
     link: '#projects',
   },
   {
-    category: '数据',
+    category: '数据驱动',
     name: '车辆标签监控',
     description:
-      '对接业务部门数据需求，设计并开发数据提取工具及自动化报表系统，支持司机用车全流程数据监控。',
+      '设计并开发数据提取工具及自动化报表系统，实现车辆真实数据监控。',
     details: [
-      '设计并开发数据提取工具及自动化报表系统，支持司机用车全流程数据监控与分析。',
-      '实现订单周期、账单应收/实收等核心数据的次日可查，提升业务决策效率。',
-      '基于系统数据制作月度经营分析报告，与财务、经管部门协作确认 toB/toC 应收实收数据。',
-      '建立关键业务指标监控体系，通过日报、月报形式跟踪目标达成情况，及时预警潜在风险。',
+      '主要问题：部分车辆是通过人工打标签的方式来进行管理，存在车辆真实状态与系统状态不一致，导致系统数据不准确。',
+      '解决方式：调取出车辆操作系统数据，设计并开发自动化报表系统，识别出人工操作的行为，自动提醒车辆状态变化。',
+      '最终结果：数据库t+1更新，中台可以在次日对车辆的真实状态进行监控和核实。确保人工操作的部分有实际证据支持，系统数据和车辆真实状态一致。',
     ],
     tech: ['SQL', 'Excel', '自动化报表'],
     image: 'images/project-dashboard.jpg',
@@ -217,15 +216,13 @@ export const credentials: Credential[] = []
 export const socials: SocialAccount[] = [
   {
     title: 'GitHub 个人主页',
-    handle: '@github.com/mingyuan-zhang',
-    href: 'https://github.com/mingyuan-zhang',
+    handle: '@github.com/Chloe-Yujiao-Wu',
+    href: 'https://github.com/Chloe-Yujiao-Wu',
   }
 ]
 
 export const contact = {
   heading: '联系我',
-  description:
-    '发邮件吧',
   socialTitle: '个人邮箱',
 }
 

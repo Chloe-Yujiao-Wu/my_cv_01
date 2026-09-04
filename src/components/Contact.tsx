@@ -13,9 +13,6 @@ export default function Contact() {
           <h2 className="max-w-2xl text-4xl font-black leading-tight tracking-tight sm:text-5xl xl:text-6xl">
             {contact.heading}
           </h2>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/60">
-            {contact.description}
-          </p>
 
           <div className="mt-14 grid gap-10 sm:grid-cols-2">
             <div>

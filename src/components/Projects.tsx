@@ -26,16 +26,14 @@ export default function Projects() {
         <SectionTitle
           eyebrow="Portfolio"
           title="项目展示"
-          lead="将复杂工程落地，为上百家商业组织创造价值。以下为代表性项目成果概览。"
+          lead=""
         />
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-2">
-          {projects.map((p, idx) => (
+        <div className="mt-16 grid gap-8 sm:grid-cols-1 lg:grid-cols-2">
+          {projects.map((p) => (
             <div
               key={p.name}
-              className={`group surface-card flex cursor-pointer flex-col overflow-hidden transition-shadow hover:shadow-lg ${
-                idx === projects.length - 1 ? 'lg:col-span-2' : ''
-              }`}
+              className="group surface-card flex cursor-pointer flex-col overflow-hidden transition-shadow hover:shadow-lg"
               onClick={() => setActive(p)}
             >
               {/* 项目配图 */}
@@ -83,7 +81,7 @@ export default function Projects() {
           onClick={() => setActive(null)}
         >
           <div
-            className="relative flex max-h-[80vh] w-[90%] max-w-2xl flex-col overflow-hidden rounded-2xl bg-card shadow-2xl"
+            className="relative flex max-h-[85vh] w-[92%] max-w-4xl flex-col overflow-hidden rounded-2xl bg-card shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* 关闭按钮 */}
@@ -117,16 +115,21 @@ export default function Projects() {
                 <p className="mt-4 text-base leading-relaxed text-muted">{active.description}</p>
 
                 {/* 详细内容列表 */}
-                <div className="mt-8 space-y-4">
+                <div className="mt-8 space-y-6">
                   <h4 className="text-lg font-bold text-ink">项目详情</h4>
-                  <ul className="space-y-3">
-                    {active.details.map((d, i) => (
-                      <li key={i} className="flex gap-3 text-base leading-relaxed text-muted">
-                        <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="space-y-5">
+                    {active.details.map((d, i) => {
+                      const parts = d.split('：')
+                      const title = parts[0]
+                      const content = parts.slice(1).join('：')
+                      return (
+                        <div key={i} className="flex gap-3">
+                          <span className="flex-none font-bold text-ink">{title}：</span>
+                          <span className="text-base leading-relaxed text-muted">{content}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
 
                 {/* 技术标签 */}
