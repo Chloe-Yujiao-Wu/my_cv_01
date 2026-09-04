@@ -13,7 +13,7 @@ export default function About() {
             <img
               src={about.portrait}
               alt={`${about.heading}`}
-              className="aspect-[4/5] w-full rounded-2xl object-cover grayscale"
+              className="aspect-[4/5] w-full rounded-2xl object-cover"
               loading="lazy"
             />
           </div>
@@ -27,7 +27,7 @@ export default function About() {
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2">
               {about.cards.map((card) => (
-                <div key={card.title} className="rounded-xl bg-soft p-6">
+                <div key={card.title} className="rounded-xl bg-card p-6">
                   <h4 className="text-lg font-black tracking-tight text-ink">{card.title}</h4>
                   <p className="mt-3 text-sm leading-relaxed text-muted">{card.description}</p>
                 </div>
