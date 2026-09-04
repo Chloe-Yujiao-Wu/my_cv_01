@@ -88,7 +88,7 @@ export const profile: Profile = {
     '英语 6 级',
     '德语 B2',
   ],
-  heroTagHighlight: '运营',
+  heroTagHighlight: '产品运营',
   email: 'chloe.yujiao.wu@foxmail.com',
 }
 
@@ -215,7 +215,7 @@ export const credentials: Credential[] = []
 
 export const socials: SocialAccount[] = [
   {
-    title: 'GitHub 个人主页',
+    title: 'GitHub',
     handle: '@github.com/Chloe-Yujiao-Wu',
     href: 'https://github.com/Chloe-Yujiao-Wu',
   }
@@ -223,7 +223,7 @@ export const socials: SocialAccount[] = [
 
 export const contact = {
   heading: '联系我',
-  socialTitle: '个人邮箱',
+  socialTitle: '个人主页',
 }
 
 export const footerMeta = {

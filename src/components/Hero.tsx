@@ -1,5 +1,6 @@
 import { profile } from '../data/resume'
 import { ArrowDownIcon, ArrowRightIcon } from './Icons'
+import TagSpiral from './TagSpiral'
 
 export default function Hero() {
   return (
@@ -38,29 +39,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* 右侧: 技能标签卡片 */}
+        {/* 右侧: 技能标签螺旋卡片 */}
         <div className="h-full">
-          <div className="surface-card flex h-full min-h-[60vh] flex-col justify-center rounded-[2rem] p-8 sm:p-10">
-            <div className="flex flex-wrap gap-x-3 gap-y-3">
-              {profile.heroTags.map((tag) =>
-                tag === profile.heroTagHighlight ? (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-accent px-4 py-2 text-sm font-bold text-white"
-                  >
-                    {tag}
-                  </span>
-                ) : (
-                  <span
-                    key={tag}
-                    className="cursor-default rounded-full border border-line bg-card px-4 py-2 text-sm font-bold text-ink transition-all duration-300 ease-out hover:scale-110 hover:bg-accent hover:border-accent hover:text-white"
-                  >
-                    {tag}
-                  </span>
-                ),
-              )}
-            </div>
-          </div>
+          <TagSpiral />
         </div>
       </div>
     </section>
