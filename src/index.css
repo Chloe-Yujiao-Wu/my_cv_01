@@ -90,79 +90,59 @@
     @apply border-line;
   }
 
-  /* ===== Hero 天空动图 ===== */
-  .sky-gradient {
-    background: linear-gradient(to bottom, #7b93c8 0%, #86a4d2 38%, #b9d0e8 70%, #edf3f9 100%);
-  }
-  .sky-drift {
-    animation: goose-drift 80s linear infinite;
-  }
-  .cloud-drift {
-    animation: cloud-drift 14s ease-in-out infinite alternate;
-  }
-  .goose-bob {
-    animation: goose-bob 1.2s ease-in-out infinite alternate;
-  }
-  .wing-near {
+  /* ===== Hero 暮色舞者场景 ===== */
+  /* 身体轻微摇摆 (髋部为轴) */
+  .dancer-sway {
     transform-box: view-box;
-    transform-origin: 92px 80px;
-    animation: wing-near 1.2s ease-in-out infinite alternate;
+    transform-origin: 678px 470px;
+    animation: dancer-sway 7s ease-in-out infinite alternate;
+    will-change: transform;
   }
-  .wing-far {
+  /* 大臂抬起摆动 (肩部为轴, 慢) */
+  .arm-lift {
     transform-box: view-box;
-    transform-origin: 104px 60px;
-    animation: wing-far 1.2s ease-in-out infinite alternate;
-    animation-delay: -0.6s;
+    transform-origin: 642px 330px;
+    animation: arm-lift 4.4s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  /* 小臂挥手 (肘部为轴, 快) — 与大臂叠加形成从左到右的优雅挥动 */
+  .arm-wave {
+    transform-box: view-box;
+    transform-origin: 618px 260px;
+    animation: arm-wave 2.8s ease-in-out infinite alternate;
+    will-change: transform;
   }
 }
 
-@keyframes goose-drift {
+@keyframes dancer-sway {
   from {
-    transform: translateX(-30vw);
+    transform: rotate(-1.1deg);
   }
   to {
-    transform: translateX(112vw);
+    transform: rotate(1.4deg);
   }
 }
-@keyframes goose-bob {
+@keyframes arm-lift {
   from {
-    transform: translateY(0);
+    transform: rotate(-9deg);
   }
   to {
-    transform: translateY(-6px);
+    transform: rotate(8deg);
   }
 }
-@keyframes wing-near {
+@keyframes arm-wave {
   from {
-    transform: rotate(-12deg);
+    transform: rotate(-20deg);
   }
   to {
-    transform: rotate(16deg);
-  }
-}
-@keyframes wing-far {
-  from {
-    transform: rotate(10deg);
-  }
-  to {
-    transform: rotate(-14deg);
-  }
-}
-@keyframes cloud-drift {
-  from {
-    transform: translateX(-18px);
-  }
-  to {
-    transform: translateX(18px);
+    transform: rotate(24deg);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sky-drift,
-  .cloud-drift,
-  .goose-bob,
-  .wing-near,
-  .wing-far {
+  .dancer-sway,
+  .arm-lift,
+  .arm-wave {
     animation: none !important;
   }
 }
