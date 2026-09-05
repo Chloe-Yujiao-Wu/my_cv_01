@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --bg-rgb: 231 232 228; /* #E7E8E4 底色 */
+    --bg-rgb: 255 255 255; /* 白色底色 */
     --card-rgb: 255 255 255; /* 白色卡片 */
     --soft-rgb: 220 221 217; /* 次级背景 */
     --ink-rgb: 19 19 18; /* 近黑主文字 */
@@ -88,5 +88,81 @@
   }
   .border-base {
     @apply border-line;
+  }
+
+  /* ===== Hero 天空动图 ===== */
+  .sky-gradient {
+    background: linear-gradient(to bottom, #7b93c8 0%, #86a4d2 38%, #b9d0e8 70%, #edf3f9 100%);
+  }
+  .sky-drift {
+    animation: goose-drift 80s linear infinite;
+  }
+  .cloud-drift {
+    animation: cloud-drift 14s ease-in-out infinite alternate;
+  }
+  .goose-bob {
+    animation: goose-bob 1.2s ease-in-out infinite alternate;
+  }
+  .wing-near {
+    transform-box: view-box;
+    transform-origin: 92px 80px;
+    animation: wing-near 1.2s ease-in-out infinite alternate;
+  }
+  .wing-far {
+    transform-box: view-box;
+    transform-origin: 104px 60px;
+    animation: wing-far 1.2s ease-in-out infinite alternate;
+    animation-delay: -0.6s;
+  }
+}
+
+@keyframes goose-drift {
+  from {
+    transform: translateX(-30vw);
+  }
+  to {
+    transform: translateX(112vw);
+  }
+}
+@keyframes goose-bob {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
+@keyframes wing-near {
+  from {
+    transform: rotate(-12deg);
+  }
+  to {
+    transform: rotate(16deg);
+  }
+}
+@keyframes wing-far {
+  from {
+    transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(-14deg);
+  }
+}
+@keyframes cloud-drift {
+  from {
+    transform: translateX(-18px);
+  }
+  to {
+    transform: translateX(18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky-drift,
+  .cloud-drift,
+  .goose-bob,
+  .wing-near,
+  .wing-far {
+    animation: none !important;
   }
 }

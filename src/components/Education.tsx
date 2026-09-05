@@ -14,7 +14,7 @@ export default function Education() {
           <div className="surface-card flex flex-col justify-center p-10">
             <h3 className="heading-2">{education.school}</h3>
             <p className="heading-4 mt-5 text-ink">{education.degree}</p>
-            <p className="body-base mt-2">{education.period}</p>
+            <p className="body-base mt-2 whitespace-nowrap">{education.period}</p>
             <p className="body-base mt-6">{education.description}</p>
           </div>
 

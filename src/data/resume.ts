@@ -113,7 +113,7 @@ export const experiences: ExperienceItem[] = [
   {
     period: '2023.09 - 2026.05',
     location: '杭州',
-    role: '产品运营',
+    role: '产品运营（直管）',
     company: '阿里巴巴 · 国际站 · 全球供应商发展部',
     points: [
       '产品运营：负责 GGS 发品产品全周期运营，涵盖文案配置（英文/繁体中文）、操作手册、培训答疑与功能优化，协同 UED/研发/AM 落地产品，提升商家体验。',
@@ -125,7 +125,7 @@ export const experiences: ExperienceItem[] = [
   {
     period: '2020.04 - 2023.01',
     location: '杭州',
-    role: '效率运营',
+    role: '效率运营（外包）',
     company: '滴滴出行 · 车胜惠迪 · 运营中心',
     points: [
       '数据支持：设计开发数据提取工具及自动化报表系统，支持司机用车全流程数据监控，实现订单周期、账单应收/实收等核心数据次日可查，提升业务决策效率。',
@@ -216,8 +216,8 @@ export const credentials: Credential[] = []
 export const socials: SocialAccount[] = [
   {
     title: 'GitHub',
-    handle: '@github.com/Chloe-Yujiao-Wu',
-    href: 'https://github.com/Chloe-Yujiao-Wu',
+    handle: '@github.com/Chloe-Yujiao-Wu/my_cv_01',
+    href: 'https://github.com/Chloe-Yujiao-Wu/my_cv_01',
   }
 ]
 

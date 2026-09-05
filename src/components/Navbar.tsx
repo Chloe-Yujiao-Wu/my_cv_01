@@ -31,7 +31,7 @@ export default function Navbar() {
     >
       <nav className="container-content flex h-[72px] items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <span className="heading-4 text-ink">{profile.name}</span>
+          <span className="heading-4 text-black dark:text-white">{profile.name}</span>
           <span className="h-5 w-px bg-line" aria-hidden="true" />
           <span className="label text-muted">{profile.role}</span>
         </a>

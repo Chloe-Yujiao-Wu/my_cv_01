@@ -111,7 +111,7 @@ export default function Experience() {
                           onChange={() => togglePeriod(period)}
                           className="sr-only"
                         />
-                        <span className={`label ${isActive ? 'text-accent' : 'text-ink'}`}>
+                        <span className={`label whitespace-nowrap ${isActive ? 'text-accent' : 'text-ink'}`}>
                           {period}
                         </span>
                       </label>
@@ -170,7 +170,7 @@ export default function Experience() {
               >
                 {/* 左列: 日期 + 地点 */}
                 <div>
-                  <p className="heading-3 text-accent">{exp.period}</p>
+                  <p className="heading-3 whitespace-nowrap text-accent">{exp.period}</p>
                   <p className="body-base mt-2">{exp.location}</p>
                 </div>
 

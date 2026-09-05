@@ -29,29 +29,29 @@ export default function Projects() {
           lead=""
         />
 
-        <div className="mt-16 grid grid-cols-2 gap-8">
-          {projects.map((p) => (
-            <div
+        <div className="mt-16 space-y-10 lg:space-y-16">
+          {projects.map((p, idx) => (
+            <article
               key={p.name}
-              className="group surface-card flex cursor-pointer flex-col overflow-hidden transition-shadow hover:shadow-lg"
+              className="group surface-card grid cursor-pointer overflow-hidden transition-shadow hover:shadow-lg lg:grid-cols-2"
               onClick={() => setActive(p)}
             >
-              {/* 项目配图 */}
-              <div className="overflow-hidden">
+              {/* 项目配图 (奇数项左右交替) */}
+              <div className={`overflow-hidden ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <img
                   src={p.image}
                   alt={p.name}
-                  className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] lg:aspect-auto lg:h-full"
                   loading="lazy"
                 />
               </div>
 
-              <div className="flex flex-1 flex-col p-8">
+              <div className="flex flex-1 flex-col justify-center p-8 lg:p-14">
                 <p className="label text-accent">{p.category}</p>
-                <h3 className="heading-2 mt-2">
+                <h3 className="heading-2 mt-3 lg:text-4xl">
                   {p.name}
                 </h3>
-                <p className="body-base mt-4 flex-1">{p.description}</p>
+                <p className="body-base mt-5">{p.description}</p>
 
                 <div className="mt-6 flex flex-wrap gap-2.5">
                   {p.tech.map((t) => (
@@ -69,7 +69,7 @@ export default function Projects() {
                   <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </span>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
