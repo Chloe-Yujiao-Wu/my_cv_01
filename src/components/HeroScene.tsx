@@ -47,40 +47,25 @@ export default function HeroScene({ progress }: HeroSceneProps) {
         preserveAspectRatio="xMidYMid slice"
       >
         <defs>
-          {/* 人物照片边缘羽化, 融入沙色背景 */}
+          {/* 羽化模糊: 用于蒙版内白色矩形边缘 */}
+          <filter id="feather-blur" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="22" />
+          </filter>
+          {/* 人物照片边缘羽化, 融入沙色背景: 黑色隐藏全部, 单个内缩白矩形模糊后让边缘渐隐 */}
           <mask id="figure-feather">
             <rect x="0" y="0" width="1440" height="810" fill="black" />
             <rect
-              x="460"
-              y="170"
-              width="520"
-              height="520"
+              x="502"
+              y="212"
+              width="436"
+              height="436"
               fill="white"
-              style={{ filter: 'blur(0px)' }}
-            />
-            <rect
-              x="474"
-              y="184"
-              width="492"
-              height="492"
-              fill="black"
-              rx="10"
-              style={{ filter: 'blur(18px)' }}
+              filter="url(#feather-blur)"
             />
           </mask>
-          {/* 鼠标进度揭示框: 从左到右展开 */}
+          {/* 鼠标进度揭示框: 从左到右展开 (直接驱动 x 属性, 避免 clipPath 内 CSS transform 兼容问题) */}
           <clipPath id="outline-reveal">
-            <rect
-              x="-10"
-              y="-10"
-              width="1470"
-              height="830"
-              style={{
-                transform: `translateX(${revealX}px)`,
-                transition: 'transform 200ms ease-out',
-                willChange: 'transform',
-              }}
-            />
+            <rect x={revealX - 10} y="-10" width="1470" height="830" />
           </clipPath>
           {/* 描边路径 */}
           <path id="path-outer" d={OUTER_FRAME} />
