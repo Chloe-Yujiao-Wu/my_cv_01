@@ -90,59 +90,31 @@
     @apply border-line;
   }
 
-  /* ===== Hero 暮色舞者场景 ===== */
-  /* 身体轻微摇摆 (髋部为轴) */
-  .dancer-sway {
-    transform-box: view-box;
-    transform-origin: 678px 470px;
-    animation: dancer-sway 7s ease-in-out infinite alternate;
-    will-change: transform;
+  /* ===== Hero 沙色 ASCII 场景 ===== */
+  /* 场景边缘导航悬停 */
+  .scene-nav a {
+    cursor: pointer;
   }
-  /* 大臂抬起摆动 (肩部为轴, 慢) */
-  .arm-lift {
-    transform-box: view-box;
-    transform-origin: 642px 330px;
-    animation: arm-lift 4.4s ease-in-out infinite alternate;
-    will-change: transform;
+  .scene-nav a text {
+    transition: fill 0.2s ease;
   }
-  /* 小臂挥手 (肘部为轴, 快) — 与大臂叠加形成从左到右的优雅挥动 */
-  .arm-wave {
-    transform-box: view-box;
-    transform-origin: 618px 260px;
-    animation: arm-wave 2.8s ease-in-out infinite alternate;
-    will-change: transform;
+  .scene-nav a:hover text {
+    fill: #2b5fa8;
+  }
+  /* 科技怀旧: 命令行光标闪烁 */
+  .blink-cursor {
+    animation: blink-cursor 1.1s steps(2, start) infinite;
   }
 }
 
-@keyframes dancer-sway {
-  from {
-    transform: rotate(-1.1deg);
-  }
+@keyframes blink-cursor {
   to {
-    transform: rotate(1.4deg);
-  }
-}
-@keyframes arm-lift {
-  from {
-    transform: rotate(-9deg);
-  }
-  to {
-    transform: rotate(8deg);
-  }
-}
-@keyframes arm-wave {
-  from {
-    transform: rotate(-20deg);
-  }
-  to {
-    transform: rotate(24deg);
+    visibility: hidden;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .dancer-sway,
-  .arm-lift,
-  .arm-wave {
+  .blink-cursor {
     animation: none !important;
   }
 }
