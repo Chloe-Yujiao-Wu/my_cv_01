@@ -99,7 +99,7 @@
     transition: fill 0.2s ease;
   }
   .scene-nav a:hover text {
-    fill: #2b5fa8;
+    fill: #ffd27a;
   }
   /* 科技怀旧: 命令行光标闪烁 */
   .blink-cursor {

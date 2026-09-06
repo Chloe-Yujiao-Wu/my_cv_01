@@ -47,23 +47,25 @@ export default function HeroScene({ progress }: HeroSceneProps) {
         preserveAspectRatio="xMidYMid slice"
       >
         <defs>
-          {/* 羽化模糊: 用于蒙版内白色矩形边缘 */}
-          <filter id="feather-blur" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="22" />
-          </filter>
-          {/* 人物照片边缘羽化, 融入沙色背景: 黑色隐藏全部, 单个内缩白矩形模糊后让边缘渐隐 */}
-          <mask id="figure-feather">
-            <rect x="0" y="0" width="1440" height="810" fill="black" />
-            <rect
-              x="502"
-              y="212"
-              width="436"
-              height="436"
-              fill="white"
-              filter="url(#feather-blur)"
+          {/* 舞者灰色背景去除: 将灰色像素转为透明 (色度键控近似) */}
+          <filter id="remove-gray-bg" x="0" y="0" width="100%" height="100%">
+            <feColorMatrix
+              type="matrix"
+              values="1 0 0 0 0
+                      0 1 0 0 0
+                      0 0 1 0 0
+                      0.5 -1 0.5 0 0"
             />
+            <feComponentTransfer>
+              <feFuncA type="linear" slope="6" intercept="-0.8" />
+            </feComponentTransfer>
+          </filter>
+          {/* 舞者底部羽化, 融入山景 */}
+          <mask id="dancer-feather">
+            <rect x="0" y="0" width="1440" height="810" fill="white" />
+            <rect x="430" y="680" width="580" height="130" fill="black" style={{ filter: 'blur(24px)' }} />
           </mask>
-          {/* 鼠标进度揭示框: 从左到右展开 (直接驱动 x 属性, 避免 clipPath 内 CSS transform 兼容问题) */}
+          {/* 鼠标进度揭示框: 从左到右展开 */}
           <clipPath id="outline-reveal">
             <rect x={revealX - 10} y="-10" width="1470" height="830" />
           </clipPath>
@@ -73,36 +75,46 @@ export default function HeroScene({ progress }: HeroSceneProps) {
           <path id="path-trapezoid" d={TRAPEZOID} />
         </defs>
 
-        {/* ===== 沙色底 ===== */}
-        <rect x="0" y="0" width="1440" height="810" fill="#DFD5C0" />
-
-        {/* ===== 真人人物照片 (羽化融入沙地) ===== */}
+        {/* ===== 雪山日落背景图 ===== */}
         <image
-          href={`${import.meta.env.BASE_URL}images/portrait.jpg`}
-          x="460"
-          y="170"
-          width="520"
-          height="520"
+          href={`${import.meta.env.BASE_URL}images/bg-mountain.jpg`}
+          x="0"
+          y="0"
+          width="1440"
+          height="810"
           preserveAspectRatio="xMidYMid slice"
-          mask="url(#figure-feather)"
+        />
+        {/* 背景上叠加半透明深色, 让前景元素更清晰 */}
+        <rect x="0" y="0" width="1440" height="810" fill="#0a0a14" opacity="0.25" />
+
+        {/* ===== 中间: 黑色女性现代舞舞者 ===== */}
+        <image
+          href={`${import.meta.env.BASE_URL}images/dancer-black.jpg`}
+          x="470"
+          y="100"
+          width="500"
+          height="700"
+          preserveAspectRatio="xMidYMid meet"
+          filter="url(#remove-gray-bg)"
+          mask="url(#dancer-feather)"
         />
 
         {/* ===== 外框: 字符矩形边界 ===== */}
-        <text fontSize="13" fill="#211D18" style={{ fontFamily: MONO }} opacity="0.85">
+        <text fontSize="13" fill="#f5f5f0" style={{ fontFamily: MONO }} opacity="0.9">
           <textPath href="#path-outer" startOffset="0">
             {edgeChars}
           </textPath>
         </text>
 
         {/* ===== 人物矩形框: 字符边界 ===== */}
-        <text fontSize="12" fill="#211D18" style={{ fontFamily: MONO }} opacity="0.8">
+        <text fontSize="12" fill="#f5f5f0" style={{ fontFamily: MONO }} opacity="0.85">
           <textPath href="#path-figure" startOffset="0">
             {edgeChars}
           </textPath>
         </text>
 
         {/* ===== 右侧梯形: 字符边界 ===== */}
-        <text fontSize="12" fill="#211D18" style={{ fontFamily: MONO }} opacity="0.8">
+        <text fontSize="12" fill="#f5f5f0" style={{ fontFamily: MONO }} opacity="0.85">
           <textPath href="#path-trapezoid" startOffset="0">
             {edgeChars}
           </textPath>
@@ -119,7 +131,7 @@ export default function HeroScene({ progress }: HeroSceneProps) {
                 fontSize="16"
                 fontWeight="700"
                 letterSpacing="6"
-                fill="#211D18"
+                fill="#ffffff"
               >
                 {item.label}
               </text>
@@ -129,12 +141,12 @@ export default function HeroScene({ progress }: HeroSceneProps) {
 
         {/* ===== 描边浮现的简历标题 (鼠标从左到右滑动时显现) ===== */}
         <g clipPath="url(#outline-reveal)">
-          <text fontSize="15" fontWeight="600" letterSpacing="4" fill="#211D18" style={{ fontFamily: MONO }} opacity="0.9">
+          <text fontSize="15" fontWeight="600" letterSpacing="4" fill="#f5f5f0" style={{ fontFamily: MONO }} opacity="0.95">
             <textPath href="#path-figure" startOffset="26">
               {titleText}
             </textPath>
           </text>
-          <text fontSize="13" fontWeight="600" letterSpacing="3" fill="#211D18" style={{ fontFamily: MONO }} opacity="0.85">
+          <text fontSize="13" fontWeight="600" letterSpacing="3" fill="#f5f5f0" style={{ fontFamily: MONO }} opacity="0.9">
             <textPath href="#path-trapezoid" startOffset="10">
               {titleText}
             </textPath>
@@ -142,7 +154,7 @@ export default function HeroScene({ progress }: HeroSceneProps) {
         </g>
 
         {/* ===== 科技怀旧装饰 ===== */}
-        <g style={{ fontFamily: MONO }} fill="#211D18">
+        <g style={{ fontFamily: MONO }} fill="#f5f5f0">
           <text x="70" y="748" fontSize="13" letterSpacing="2" opacity="0.75">
             READY <tspan className="blink-cursor">█</tspan>
           </text>
