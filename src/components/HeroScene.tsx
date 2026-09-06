@@ -47,6 +47,19 @@ export default function HeroScene({ progress }: HeroSceneProps) {
         preserveAspectRatio="xMidYMid slice"
       >
         <defs>
+          {/* 舞者背景键控: 灰色(亮度0.5)透明, 白/黑不透明 (V形alpha曲线) */}
+          <filter id="key-gray" x="0" y="0" width="100%" height="100%">
+            <feColorMatrix
+              type="matrix"
+              values="1 0 0 0 0
+                      0 1 0 0 0
+                      0 0 1 0 0
+                      0.33 0.33 0.34 0 0"
+            />
+            <feComponentTransfer>
+              <feFuncA type="table" tableValues="1 0.55 0.05 0.55 1" />
+            </feComponentTransfer>
+          </filter>
           {/* 舞者底部羽化, 融入山景 */}
           <mask id="dancer-feather">
             <rect x="0" y="0" width="1440" height="810" fill="white" />
@@ -74,7 +87,7 @@ export default function HeroScene({ progress }: HeroSceneProps) {
         {/* 背景上叠加半透明深色, 让前景元素更清晰 */}
         <rect x="0" y="0" width="1440" height="810" fill="#0a0a14" opacity="0.2" />
 
-        {/* ===== 中间: 黑色女性现代舞舞者 (multiply 融合背景) ===== */}
+        {/* ===== 中间: 黑色女性现代舞舞者 ===== */}
         <image
           href={`${import.meta.env.BASE_URL}images/dancer-white-bg.jpg`}
           x="470"
@@ -82,8 +95,8 @@ export default function HeroScene({ progress }: HeroSceneProps) {
           width="500"
           height="720"
           preserveAspectRatio="xMidYMid meet"
+          filter="url(#key-gray)"
           mask="url(#dancer-feather)"
-          style={{ mixBlendMode: 'multiply' }}
         />
 
         {/* ===== 外框: 字符矩形边界 ===== */}
